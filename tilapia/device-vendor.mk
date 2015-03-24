@@ -15,6 +15,13 @@
 LOCAL_PATH += $(call my-dir)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+$(call inherit-product, vendor/asus/grouper/device-vendor.mk)
+
+# Asus blob(s) necessary for Tilipa hardware
+PRODUCT_PACKAGES := \
+    apns-conf \
+    libxgold-ril \
+    
 # Asus blob(s) necessary for Grouper hardware
 PRODUCT_PACKAGES += \
     sensors-config \
