@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.media.effect.bgdropper.adj=0.2 \
+    camera.flash_off=0 \
+    media.aac_51_output_enabled=true \
+    ro.com.widevine.cachesize=16777216 \
+
 LOCAL_PATH += $(call my-dir)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -103,8 +109,14 @@ PRODUCT_PACKAGES += \
     libnvtvmr \
     libnvwinsys \
     libnvwsi \
+    libpn544_fw.so \
     libstagefrighthw \
     libtf_crypto_sst
-
+    
+PRODUCT_PACKAGES += \
+    libfmas \
+    audio_effects \
+    libfrsdk
+    
 PRODUCT_PACKAGES += keystore.grouper
 

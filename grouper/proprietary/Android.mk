@@ -14,7 +14,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter grouper tilapia,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),grouper)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := sensors-config
@@ -752,5 +752,35 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/firmware
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nxp
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libfmas
+LOCAL_SRC_FILES := libfmas
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib/soundfx
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := nvidia
+include $
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libfrsdk
+LOCAL_SRC_FILES := libfrsdk.so
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/lib
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := asus
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := audio_effects
+LOCAL_SRC_FILES := audio_effects.conf
+LOCAL_MODULE_SUFFIX := .conf
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT)vendor/etc
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := nvidia
+include $(BUILD_PREBUILT)
 
 endif
