@@ -14,5 +14,5 @@
 
 LOCAL_STEM := vendor/asus/tilapia/BoardConfigPartial.mk
 
--include vendor/asus/grouper/device-vendor.mk
+-include vendor/asus/tilapia/device-vendor.mk
 
